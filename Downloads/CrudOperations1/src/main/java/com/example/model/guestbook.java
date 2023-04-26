@@ -7,11 +7,12 @@ import javax.persistence.Table;
 @Table  
 public class guestbook 
 {  
-@Id  
+ 
 @Column  
 private int guestName;  
 @Column  
 private String content;  
+@Id 
 @Column  
 private String entryID;
 public int getGuestName() {
