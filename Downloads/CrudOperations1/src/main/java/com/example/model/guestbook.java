@@ -23,6 +23,8 @@ public class guestbook {
 		this.entryID = entryID2;
 	}
 
+	
+
 	public String getGuestName() {
 		return guestName;
 	}

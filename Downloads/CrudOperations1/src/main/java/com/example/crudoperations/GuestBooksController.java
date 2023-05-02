@@ -1,4 +1,4 @@
-package com.example.CrudOperations;
+package com.example.crudoperations;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,9 @@ public class GuestBooksController {
 
 	@Autowired
 	static GuestBookService booksService;
-
+	private GuestBooksController() {
+		
+	}
 	@GetMapping("/guestbook")
 	public static List<guestbook> getAllBooks() {
 		return booksService.getAllGuestBooks();
@@ -34,13 +36,16 @@ public class GuestBooksController {
 	}
 
 	@PostMapping("/books")
-	static void saveBook(@RequestBody guestbook books) {
+	static void saveBook(@RequestBody GuestBookRequestModel books1) {
+		guestbook books = new guestbook(books1.guestName, books1.content, books1.entryID);
 		booksService.saveOrUpdate(books);
+
 
 	}
 
 	@PutMapping("/books")
-	static guestbook update(@RequestBody guestbook books) {
+	static guestbook update(@RequestBody GuestBookRequestModel books1) {
+		guestbook books = new guestbook(books1.guestName, books1.content, books1.entryID);
 		booksService.saveOrUpdate(books);
 		return books;
 	}
