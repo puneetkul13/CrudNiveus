@@ -20,7 +20,9 @@ public class GuestBookService {
 	}
 
 	public guestbook getGuestBooksById(int entryID) {
-		return guestRepository.findById(entryID).get();
+		if(!guestRepository.findById(entryID).isEmpty()) {
+		return guestRepository.findById(entryID).get();}
+		return new guestbook("guestbook", "I am here", entryID);
 	}
 
 	public void saveOrUpdate(guestbook books) {
