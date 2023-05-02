@@ -7,17 +7,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class guestbook {
+public class GuestBook {
 
 	@Column
-	private String guestName;
+	public String guestName;
 	@Column
-	private String content;
+	public String content;
 	@Id
 	@Column
-	private int entryID;
+	public int entryID;
 
-	public guestbook(String guestName2, String content2, int entryID2) {
+	public GuestBook(String guestName2, String content2, int entryID2) {
 		this.guestName = guestName2;
 		this.content = content2;
 		this.entryID = entryID2;

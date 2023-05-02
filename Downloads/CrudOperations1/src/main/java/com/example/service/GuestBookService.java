@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.model.guestbook;
+import com.example.model.GuestBook;
 import com.example.repository.GuestBooksRepository;
 
 @Service
@@ -13,19 +13,19 @@ public class GuestBookService {
 	@Autowired
 	GuestBooksRepository guestRepository;
 
-	public List<guestbook> getAllGuestBooks() {
-		List<guestbook> guestBooks = new ArrayList<guestbook>();
+	public List<GuestBook> getAllGuestBooks() {
+		List<GuestBook> guestBooks = new ArrayList<GuestBook>();
 		guestRepository.findAll().forEach(guestBooks1 -> guestBooks.add(guestBooks1));
 		return guestBooks;
 	}
 
-	public guestbook getGuestBooksById(int entryID) {
+	public GuestBook getGuestBooksById(int entryID) {
 
 		return guestRepository.findById(entryID).orElse(null);
 
 	}
 
-	public void saveOrUpdate(guestbook books) {
+	public void saveOrUpdate(GuestBook books) {
 		guestRepository.save(books);
 	}
 
@@ -33,7 +33,7 @@ public class GuestBookService {
 		guestRepository.deleteById(entryID);
 	}
 
-	public void update(guestbook books, int entryID) {
+	public void update(GuestBook books, int entryID) {
 		guestRepository.save(books);
 	}
 }

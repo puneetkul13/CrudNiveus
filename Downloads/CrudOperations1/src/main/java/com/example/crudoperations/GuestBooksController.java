@@ -21,31 +21,35 @@ public class GuestBooksController {
 		
 	}
 	@GetMapping("/guestbook")
-	public static List<guestbook> getAllBooks() {
+	public static List<GuestBook> getAllBooks() {
 		return booksService.getAllGuestBooks();
 	}
 
 	@GetMapping("/book/{entryID}")
-	static guestbook getBooks(@PathVariable("entryID") int entryID) {
+	public
+	static GuestBook getBooks(@PathVariable("entryID") int entryID) {
 		return booksService.getGuestBooksById(entryID);
 	}
 
 	@DeleteMapping("/book/{entryID}")
+	public
 	static void deleteBook(@PathVariable("entryID") int entryID) {
 		booksService.delete(entryID);
 	}
 
 	@PostMapping("/books")
-	static void saveBook(@RequestBody GuestBookRequestModel books1) {
-		guestbook books = new guestbook(books1.guestName, books1.content, books1.entryID);
+	public
+	static void saveBook(@RequestBody GuestBookRequestModel g) {
+		GuestBook books = new GuestBook(g.guestName, g.content, g.entryID);
 		booksService.saveOrUpdate(books);
 
 
 	}
 
 	@PutMapping("/books")
-	static guestbook update(@RequestBody GuestBookRequestModel books1) {
-		guestbook books = new guestbook(books1.guestName, books1.content, books1.entryID);
+	public
+	static GuestBook update(@RequestBody GuestBookRequestModel g) {
+		GuestBook books = new GuestBook(g.guestName, g.content, g.entryID);
 		booksService.saveOrUpdate(books);
 		return books;
 	}
