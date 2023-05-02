@@ -1,1 +1,0 @@
-<beans> <bean name="GuestBookService" class="com.example.service.GuestBookService"/></beans>

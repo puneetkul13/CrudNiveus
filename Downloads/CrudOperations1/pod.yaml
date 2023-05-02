@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: CrudOperations1
+  labels:
+    app: web
+
+spec:
+  containers:
+  - name: crudContainer
+    image: cruds:latest
+    ports:
+    - containerPort: 8080
